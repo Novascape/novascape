@@ -116,7 +116,7 @@ public class Planet : MonoBehaviour {
 	}
 
 	void generateCaves(int i, int j){
-		if (Random.Range (1, 100) <= 3) {
+		if (Random.Range (1, 100) <= 2) {
 			generateCaves (Random.Range (5, blocks.GetLength (0) - 5), Random.Range (5, blocks.GetLength (1) - 5));
 			//generateCaves(blocks.GetLength(0)/2, blocks.GetLength(1)/2);
 		}

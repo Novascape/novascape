@@ -4,8 +4,8 @@ using System.Collections;
 public class mouseControl : MonoBehaviour {
 
 	private Vector2 mousePosition;
-	public float moveSpeed = 0.1f;
-	private int durability = 20;
+	public float moveSpeed = 25.0f;
+	private int durability = 1000000;
 
 	// Use this for initialization
 	void Start () {
@@ -14,9 +14,19 @@ public class mouseControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		mousePosition = Input.mousePosition;
-		mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-		transform.position = Vector2.Lerp(transform.position, mousePosition,moveSpeed);
+		if (Input.GetKey (KeyCode.LeftArrow)) {
+			transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+		}
+		if (Input.GetKey (KeyCode.RightArrow)) {
+			transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+		}
+		if (Input.GetKey (KeyCode.UpArrow)) {
+			transform.position += Vector3.up * moveSpeed * Time.deltaTime;
+		}
+		if (Input.GetKey (KeyCode.DownArrow)) {
+			transform.position += Vector3.down * moveSpeed * Time.deltaTime;
+		}
+
 	}
 
 	void OnCollisionEnter2D(Collision2D other)

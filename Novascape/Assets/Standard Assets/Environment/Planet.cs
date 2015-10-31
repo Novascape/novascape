@@ -6,7 +6,7 @@ using Random=UnityEngine.Random;
 public class Planet : MonoBehaviour {
 	public int[,] blocks;
 	public int radius;
-	public int[] res={11, 8, 5, 3, 1};
+	public int[] res = {1, 4, 9, 17, 28};
 	public GameObject[] blockObjects;
 
 	string world;
@@ -15,9 +15,10 @@ public class Planet : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//blocks = new int[radius*2+20, radius*2+20];
-		blocks = new int[50, 50];
 		radius = 20;
+		blocks = new int[radius*2+20, radius*2+20];
+		//blocks = new int[50, 50];
+
 		for (int i=0; i<blocks.GetLength(0); i++) {
 			for (int j=0; j<blocks.GetLength(1); j++){
 				blocks[i, j]=0;
@@ -43,7 +44,7 @@ public class Planet : MonoBehaviour {
 			for (int j=0; j<blocks.GetLength(1); j++) {
 				world+=blocks[i, j];
 				if (blocks[i, j]!=0){
-					GameObject instance=Instantiate(blockObjects[blocks[i, j]-1], new Vector2(j*.25f, i*.25f), Quaternion.identity) as GameObject;
+					GameObject instance=Instantiate(blockObjects[blocks[i, j]-1], new Vector2(j*.5f, i*.5f), Quaternion.identity) as GameObject;
 					instance.transform.SetParent(worldHolder);
 				}
 			}
@@ -144,7 +145,8 @@ public class Planet : MonoBehaviour {
 					if (Random.Range(1, 100)<=(res[k]+k)){
 						int count=5;
 						while (count>0){
-							blocks[i, j]=k+2;
+							if (blocks[i, j]==1)
+								blocks[i, j]=k+2;
 							int dir=Random.Range(0,3);
 							if (dir==0 && blocks[i, j+1]==1) j++;
 							else if (dir==1 && blocks[i, j-1]==1) j--;
@@ -156,6 +158,30 @@ public class Planet : MonoBehaviour {
 						}
 					}
 				}
+				/*
+				int rand = Random.Range (1, 200);
+				for (int k=0; k<res.GetLength(0); k++) {
+					if (res [k] <= rand) {
+						int count = 5;
+						while (count>0) {
+							if (blocks [i, j] == 1)
+								blocks [i, j] = k + 2;
+							int dir = Random.Range (0, 3);
+							if (dir == 0 && blocks [i, j + 1] == 1)
+								j++;
+							else if (dir == 1 && blocks [i, j - 1] == 1)
+								j--;
+							else if (dir == 2 && blocks [i + 1, j] == 1)
+								i++;
+							else if (dir == 3 && blocks [i - 1, j] == 1)
+								i--;
+							count--;
+							if (Random.Range (0, 100) < 10)
+								count++;
+						}
+						break;
+					}
+				}*/
 			}
 		}
 	}

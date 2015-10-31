@@ -1,43 +1,43 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &164676
+--- !u!1 &118742
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 454824}
-  - 212: {fileID: 21218376}
-  - 61: {fileID: 6150510}
-  - 114: {fileID: 11438368}
-  - 50: {fileID: 5002290}
+  - 4: {fileID: 469576}
+  - 212: {fileID: 21248110}
+  - 50: {fileID: 5097042}
+  - 61: {fileID: 6198132}
+  - 114: {fileID: 11496916}
   m_Layer: 0
-  m_Name: Block1
-  m_TagString: Tile
+  m_Name: MouseCursor
+  m_TagString: Tool
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &454824
+--- !u!4 &469576
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 164676}
+  m_GameObject: {fileID: 118742}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.32000005, y: -.839999974, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 6, y: 6, z: 0}
+  m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5002290
+--- !u!50 &5097042
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 164676}
+  m_GameObject: {fileID: 118742}
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
@@ -47,37 +47,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &6150510
+--- !u!61 &6198132
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 164676}
+  m_GameObject: {fileID: 118742}
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: .479999989, y: .479999989}
---- !u!114 &11438368
+  m_Size: {x: .639999986, y: .639999986}
+--- !u!114 &11496916
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 164676}
+  m_GameObject: {fileID: 118742}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e137e4baff00b4beb8cef15328eca3ee, type: 3}
+  m_Script: {fileID: 11500000, guid: ab61ae646a1554ad5b5d652cac03c97e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileText: {fileID: 2800000, guid: ad2271ab0fd0546c9929f6cdfdb65a3a, type: 3}
---- !u!212 &21218376
+  moveSpeed: .100000001
+--- !u!212 &21248110
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 164676}
+  m_GameObject: {fileID: 118742}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -96,7 +96,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ad2271ab0fd0546c9929f6cdfdb65a3a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9750709e017ee4dfe80568d739795bef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -104,37 +104,8 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: ad2271ab0fd0546c9929f6cdfdb65a3a,
-        type: 3}
-    - target: {fileID: 0}
-      propertyPath: tileText
-      value: 
-      objectReference: {fileID: 2800000, guid: ad2271ab0fd0546c9929f6cdfdb65a3a, type: 3}
-    - target: {fileID: 0}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_TagString
-      value: Tile
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_AngularDrag
-      value: .0500000007
-      objectReference: {fileID: 0}
+    m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 164676}
+  m_RootGameObject: {fileID: 118742}
   m_IsPrefabParent: 1

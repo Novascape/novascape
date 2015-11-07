@@ -111,13 +111,43 @@ public class Planet : MonoBehaviour {
 						blocks[i,j]=1;
 				}
 			}
-		}
+
+		}/*
+		int distance = (blocks.GetLength (0) - radius * 2) / 2;
+		for (int i=0; i<5; i++) {
+			x=Random.Range(0, blocks.GetLength(0));
+			y=Random.Range(0, blocks.GetLength(0));
+			while (blocks[x, y]==0){
+				x=Random.Range(0, blocks.GetLength(0));
+				y=Random.Range(0, blocks.GetLength(0));
+			}
+			int count=5+Random.Range(-2, 2);
+			int rand=Random.Range(1, 150);
+			int index=0;
+			for (; index<res.GetLength(0); index++){
+				if (rand<=res[index])
+					break;
+			}
+			while (count>0&&index!=res.GetLength(0)){
+				if (blocks[x, y]==1){
+					blocks[x, y]=i+2;
+					count--;
+				}
+				int dir=Random.Range(0,3);
+				if (dir==0 && blocks[x, y+1]==1) y++;
+				else if (dir==1 && blocks[x, y-1]==1) y--;
+				else if (dir==2 && blocks[x+1, y]==1) x++;
+				else if (dir==3 && blocks[x-1, y]==1) x--;
+			}
+			if (Random.Range (1, 100) < 25)
+				i--;
+		}*/
 
 
 	}
 
 	void generateCaves(int i, int j){
-		if (Random.Range (1, 100) <= 2) {
+		if (Random.Range (1, 100) <= 3) {
 			generateCaves (Random.Range (5, blocks.GetLength (0) - 5), Random.Range (5, blocks.GetLength (1) - 5));
 			//generateCaves(blocks.GetLength(0)/2, blocks.GetLength(1)/2);
 		}
@@ -139,9 +169,29 @@ public class Planet : MonoBehaviour {
 
 	void generateResources(){
 		int distance = (blocks.GetLength (0) - radius * 2) / 2;
+		for (int i=0; i<res.GetLength(0); i++) {
+			int x=Random.Range(0, blocks.GetLength(0));
+			int y=Random.Range(0, blocks.GetLength(0));
+			while (blocks[x, y]==0){
+				x=Random.Range(0, blocks.GetLength(0));
+				y=Random.Range(0, blocks.GetLength(0));
+			}
+			int count=5;
+			while (count>0){
+				if (blocks[x, y]==1){
+					blocks[x, y]=i+2;
+					count--;
+				}
+				int dir=Random.Range(0,3);
+				if (dir==0 && blocks[x, y+1]==1) y++;
+				else if (dir==1 && blocks[x, y-1]==1) y--;
+				else if (dir==2 && blocks[x+1, y]==1) x++;
+				else if (dir==3 && blocks[x-1, y]==1) x--;
+			}
+		}
 		for (int i=distance; i<blocks.GetLength(0)-distance; i++) {
 			for (int j=distance; j<blocks.GetLength(1)-distance; j++) {
-				for (int k=0; k<res.GetLength(0); k++){
+				/**/for (int k=0; k<res.GetLength(0); k++){
 					if (Random.Range(1, 100)<=(res[k]+k)){
 						int count=5;
 						while (count>0){
@@ -157,7 +207,7 @@ public class Planet : MonoBehaviour {
 								count++;
 						}
 					}
-				}
+				}/**/
 				/*
 				int rand = Random.Range (1, 200);
 				for (int k=0; k<res.GetLength(0); k++) {
@@ -185,6 +235,7 @@ public class Planet : MonoBehaviour {
 			}
 		}
 	}
+
 
 	bool ifSurrounded(int i, int j){
 		if (blocks [i, j-1] == 0
